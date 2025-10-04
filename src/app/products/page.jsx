@@ -7,20 +7,30 @@ export default function ProductsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const res = await fetch("http://localhost:5000/scrape_all");
-        const data = await res.json();
-        setProductsData(data);
-      } catch (err) {
-        console.error("Backend fetch is slow or failed:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const fetchProducts = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/scrape_all");
+      const data = await res.json();
+      setProductsData(data);
+    } catch (err) {
+      console.error("Backend fetch is slow or failed:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  // Initial fetch
+  fetchProducts();
+
+  // Set interval to fetch every 2 hours (2 * 60 * 60 * 1000 ms)
+  const interval = setInterval(() => {
     fetchProducts();
-  }, []);
+  }, 2 * 60 * 60 * 1000);
+
+  // Cleanup on component unmount
+  return () => clearInterval(interval);
+}, []);
+
 
   if (loading) {
     return (
