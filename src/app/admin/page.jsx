@@ -1,61 +1,80 @@
 "use client";
-import React, { useState } from "react";
 
-export default function AdminUploadPage() {
-  const [password, setPassword] = useState("");
-  const [authenticated, setAuthenticated] = useState(false);
-  const [productsData, setProductsData] = useState({});
+import { useState } from "react";
 
-  const correctPassword = "123321"; // Change this
+export default function UploadJSONPage() {
+  const [fileName, setFileName] = useState("");
+  const [jsonData, setJsonData] = useState(null);
+  const [message, setMessage] = useState("");
 
-  const handleLogin = () => {
-    if (password === correctPassword) setAuthenticated(true);
-    else alert("Incorrect password!");
-  };
-
+  // Handle file upload
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     if (!file) return;
+
+    setFileName(file.name);
 
     const reader = new FileReader();
     reader.onload = (event) => {
       try {
         const json = JSON.parse(event.target.result);
-        setProductsData(json);
-        localStorage.setItem("uploadedProducts", JSON.stringify(json)); // save for /products page
-        alert("JSON uploaded successfully!");
+        setJsonData(json);
+        localStorage.setItem("uploadedProducts", JSON.stringify(json));
+
+        setMessage(
+          "✅ JSON loaded! You can now preview and download it to update Vercel."
+        );
       } catch (err) {
-        alert("Invalid JSON file.");
+        setMessage("❌ Invalid JSON file!");
+        console.error(err);
       }
     };
-
     reader.readAsText(file);
   };
 
-  if (!authenticated)
-    return (
-      <div className="p-8">
-        <h1 className="text-2xl font-bold mb-4">Admin Login</h1>
-        <input
-          type="password"
-          placeholder="Enter password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="p-2 border rounded mr-2"
-        />
-        <button onClick={handleLogin} className="p-2 bg-blue-500 text-white rounded">
-          Login
-        </button>
-      </div>
-    );
+  // Download JSON file
+  const downloadJSON = () => {
+    if (!jsonData) return;
+
+    const blob = new Blob([JSON.stringify(jsonData, null, 2)], {
+      type: "application/json",
+    });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "products.json";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
 
   return (
-    <div className="p-8">
-      <h1 className="text-2xl font-bold mb-4">Upload JSON File</h1>
-      <input type="file" accept=".json" onChange={handleFileUpload} />
-      <div className="mt-4">
-        Uploaded Products: {Object.keys(productsData).length}
-      </div>
-    </div>
+    <main className="min-h-screen bg-gray-100 p-8">
+      <h1 className="text-3xl font-bold mb-6">Upload & Download Products JSON</h1>
+
+      <input
+        type="file"
+        accept=".json"
+        onChange={handleFileUpload}
+        className="mb-4 p-2 border border-gray-300 rounded"
+      />
+
+      {fileName && <p>File: {fileName}</p>}
+      {message && <p className="mt-2">{message}</p>}
+
+      {jsonData && (
+        <button
+          onClick={downloadJSON}
+          className="mt-4 px-4 py-2 bg-sky-600 text-white rounded hover:bg-sky-700 transition"
+        >
+          📥 Download JSON for Vercel
+        </button>
+      )}
+
+      <p className="mt-4 text-sm text-gray-600">
+        ⚠️ Note: This allows you to download the JSON file that you can replace
+        in <code>/public/products.json</code> in your Vercel project.
+      </p>
+    </main>
   );
 }
