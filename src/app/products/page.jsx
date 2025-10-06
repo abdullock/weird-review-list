@@ -7,40 +7,13 @@ export default function ProductsPage() {
   const [loading, setLoading] = useState(true);
 
  
-  const NGROK_URL = "https://unslammed-cooly-emil.ngrok-free.dev/scrape_all";
-
+  
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const res = await fetch("http://localhost:5000/scrape_all");
-        const contentType = res.headers.get("content-type");
-
-        if (!contentType || !contentType.includes("application/json")) {
-          const text = await res.text();
-          console.error("❌ Backend returned non-JSON:", text);
-          return;
-        }
-
-        const data = await res.json();
-        setProductsData(data);
-      } catch (err) {
-        console.error("Backend fetch failed:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    // Initial fetch
-    fetchProducts();
-
-    // Auto refresh every 2 hours
-    const interval = setInterval(fetchProducts, 2 * 60 * 60 * 1000);
-
-    return () => clearInterval(interval);
+    const storedData = localStorage.getItem("uploadedProducts");
+    if (storedData) setProductsData(JSON.parse(storedData));
   }, []);
 
-  if (loading) return <div>Loading...</div>;
-  if (!productsData || productsData.error) return <div>Error: {productsData.error}</div>;
+ 
 
   return (
     <main className="min-h-screen bg-gray-100 p-8">
