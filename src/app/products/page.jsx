@@ -6,39 +6,41 @@ export default function ProductsPage() {
   const [productsData, setProductsData] = useState({});
   const [loading, setLoading] = useState(true);
 
+ 
+  const NGROK_URL = "https://unslammed-cooly-emil.ngrok-free.dev/scrape_all";
+
   useEffect(() => {
-  const fetchProducts = async () => {
-    try {
-      const res = await fetch("https://unslammed-cooly-emil.ngrok-free.dev/scrape_all" || "http://localhost:5000/scrape_all");
-      const data = await res.json();
-      setProductsData(data);
-    } catch (err) {
-      console.error("Backend fetch is slow or failed:", err);
-    } finally {
-      setLoading(false);
-    }
-  };
+    const fetchProducts = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/scrape_all");
+        const contentType = res.headers.get("content-type");
 
-  // Initial fetch
-  fetchProducts();
+        if (!contentType || !contentType.includes("application/json")) {
+          const text = await res.text();
+          console.error("❌ Backend returned non-JSON:", text);
+          return;
+        }
 
-  // Set interval to fetch every 2 hours (2 * 60 * 60 * 1000 ms)
-  const interval = setInterval(() => {
+        const data = await res.json();
+        setProductsData(data);
+      } catch (err) {
+        console.error("Backend fetch failed:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    // Initial fetch
     fetchProducts();
-  }, 2 * 60 * 60 * 1000);
 
-  // Cleanup on component unmount
-  return () => clearInterval(interval);
-}, []);
+    // Auto refresh every 2 hours
+    const interval = setInterval(fetchProducts, 2 * 60 * 60 * 1000);
 
+    return () => clearInterval(interval);
+  }, []);
 
-  if (loading) {
-    return (
-      <main className="min-h-screen flex items-center justify-center">
-        <p className="text-xl font-semibold">Loading products...</p>
-      </main>
-    );
-  }
+  if (loading) return <div>Loading...</div>;
+  if (!productsData || productsData.error) return <div>Error: {productsData.error}</div>;
 
   return (
     <main className="min-h-screen bg-gray-100 p-8">
