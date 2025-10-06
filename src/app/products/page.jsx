@@ -9,7 +9,7 @@ export default function ProductsPage() {
   useEffect(() => {
   const fetchProducts = async () => {
     try {
-      const res = await fetch("http://192.168.68.131:5000/scrape_all" || "http://localhost:5000/scrape_all");
+      const res = await fetch("https://unslammed-cooly-emil.ngrok-free.dev/scrape_all" || "http://localhost:5000/scrape_all");
       const data = await res.json();
       setProductsData(data);
     } catch (err) {
