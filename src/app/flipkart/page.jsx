@@ -62,8 +62,11 @@ export default function FlipkartPage() {
                   {product.Reviews}
                 </p>
                 <p className="text-gray-500">
-                  <span className="font-semibold">Stars:</span>{" "}
-                  {product.Stars.join(" / ")}
+                    Stars: {product.star} <span className="font-semibold">★</span>
+                </p>
+                <p className="text-gray-500">
+                  <span className="font-semibold">Stars_Ratings:</span>{" "}
+                  {product.Star_Ratings.join(" / ")}
                 </p>
                 <p className="text-gray-500">
                   <span className="font-semibold">SKU:</span>{" "}

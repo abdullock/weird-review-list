@@ -5,7 +5,8 @@
       "Title": "Killato by Weird Wolf 2 in 1 UV Light Mosquito Bat Racket with Ba...",
       "Price": "₹603",
       "Reviews": "338",
-      "Stars": [
+      "star": "4",
+      "Star_Ratings": [
         "1,004",
         "517"
       ]
@@ -15,7 +16,8 @@
       "Title": "N/A",
       "Price": "₹1,149",
       "Reviews": "7",
-      "Stars": [
+      "star": "3.2",
+      "Star_Ratings": [
         "16",
         "9"
       ]
@@ -25,7 +27,8 @@
       "Title": "Killato by Weird Wolf 2 in 1 UV Light Mosquito Bat Racket with Ba...",
       "Price": "₹603",
       "Reviews": "93",
-      "Stars": [
+      "star": "3.9",
+      "Star_Ratings": [
         "310",
         "135"
       ]
@@ -35,14 +38,16 @@
       "Title": "N/A",
       "Price": "N/A",
       "Reviews": "N/A",
-      "Stars": []
+      "star": "N/A",
+      "Star_Ratings": []
     },
     {
       "ProductID": "EIKH3YWUWH5FWMHN",
       "Title": "Killato by Weird Wolf Mosquito Bat Racket Rechargeable Maroon Ele...",
       "Price": "₹451",
       "Reviews": "1,905",
-      "Stars": [
+      "star": "4.2",
+      "Star_Ratings": [
         "5,680",
         "3,233"
       ]
@@ -52,7 +57,8 @@
       "Title": "WEIRD WOLF Rechargeable Mosquito Racket Bat with COB Light | Long...",
       "Price": "₹455",
       "Reviews": "70",
-      "Stars": [
+      "star": "3.9",
+      "Star_Ratings": [
         "264",
         "118"
       ]
@@ -62,7 +68,8 @@
       "Title": "Killato by Weird Wolf Rechargeable Mosquito Racket with COB Light...",
       "Price": "₹407",
       "Reviews": "2,720",
-      "Stars": [
+      "star": "3.9",
+      "Star_Ratings": [
         "10,292",
         "5,269"
       ]
@@ -72,7 +79,8 @@
       "Title": "WEIRD WOLF Rechargeable Mosquito Killer Racket- Electric Insect K...",
       "Price": "₹300",
       "Reviews": "65",
-      "Stars": [
+      "star": "3.5",
+      "Star_Ratings": [
         "242",
         "140"
       ]
@@ -82,7 +90,8 @@
       "Title": "Killato - Mosquito Racket, with 3 Months Warranty Electric Insect...",
       "Price": "₹279",
       "Reviews": "1,884",
-      "Stars": [
+      "star": "3.5",
+      "Star_Ratings": [
         "6,389",
         "2,831"
       ]
@@ -92,7 +101,8 @@
       "Title": "Killato by Weird Wolf 2 in 1 UV-Light Mosquito Racket Bat with Ba...",
       "Price": "₹607",
       "Reviews": "368",
-      "Stars": [
+      "star": "4",
+      "Star_Ratings": [
         "1,100",
         "496"
       ]
@@ -102,7 +112,8 @@
       "Title": "WEIRD WOLF Killato by Weird Wolf 2 in 1 UV Light Foldable Mosquit...",
       "Price": "₹601",
       "Reviews": "7",
-      "Stars": [
+      "star": "3.9",
+      "Star_Ratings": [
         "9",
         "9"
       ]
@@ -114,7 +125,8 @@
       "Title": "WEIRD WOLF 3 Colour Mode Rechargeable, Flexible Gooseneck LED Stu...",
       "Price": "₹480",
       "Reviews": "7,463",
-      "Stars": [
+      "star": "4.4",
+      "Star_Ratings": [
         "34,772",
         "14,898"
       ]
@@ -124,7 +136,8 @@
       "Title": "Rudefox by Weird Wolf 3 Colour Mode LED Table / Desk / Study Lamp",
       "Price": "₹464",
       "Reviews": "1,125",
-      "Stars": [
+      "star": "4.4",
+      "Star_Ratings": [
         "6,296",
         "2,578"
       ]
@@ -134,9 +147,21 @@
       "Title": "WEIRD WOLF 3 Colour Mode Light- White, Warm,|Table, Study Lamp",
       "Price": "₹623",
       "Reviews": "1,259",
-      "Stars": [
+      "star": "4.4",
+      "Star_Ratings": [
         "5,680",
         "2,042"
+      ]
+    },
+    {
+      "ProductID": "TLPH44JGSETNCZG9",
+      "Title": "HOUSE OF COMMON 3 Colour Mode Rechargeable, Flexible Gooseneck LE...",
+      "Price": "₹426",
+      "Reviews": "1",
+      "star": "4.3",
+      "Star_Ratings": [
+        "9",
+        "1"
       ]
     }
   ],
@@ -146,7 +171,8 @@
       "Title": "HiCare Services HiCare Spider Curve Insect Catcher Electric Insec...",
       "Price": "N/A",
       "Reviews": "89",
-      "Stars": [
+      "star": "3.7",
+      "Star_Ratings": [
         "271",
         "119"
       ]
@@ -154,9 +180,10 @@
     {
       "ProductID": "EIKH4DHKGHZHZHWW",
       "Title": "Killato by Weird Wolf 15W UV Light Bug Zapper Electric Insect Kil...",
-      "Price": "₹1,291",
+      "Price": "₹1,297",
       "Reviews": "72",
-      "Stars": [
+      "star": "3.4",
+      "Star_Ratings": [
         "217",
         "98"
       ]
@@ -166,7 +193,8 @@
       "Title": "Killato by Weird Wolf 10W UV Light Bug Zapper Electric Insect Kil...",
       "Price": "₹1,330",
       "Reviews": "48",
-      "Stars": [
+      "star": "3.5",
+      "Star_Ratings": [
         "141",
         "53"
       ]
