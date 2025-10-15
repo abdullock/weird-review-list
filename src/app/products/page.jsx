@@ -9,7 +9,7 @@ export default function ProductsPage() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch("/products_data.json"); // <-- Load JSON from public folder
+        const res = await fetch("/amazon_data.json"); // <-- Load JSON from public folder
         const data = await res.json();
         setProductsData(data);
       } catch (err) {
